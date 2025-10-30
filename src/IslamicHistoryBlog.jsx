@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, MapPin, Users, Building, Scroll, ChevronRight, Menu, X, Star, Globe, Sparkles, Crown, Sword, BookMarked, GraduationCap, Landmark } from 'lucide-react';
+import { BookOpen, MapPin, Users, Building, Scroll, ChevronRight, Menu, X, Star, Globe, Sparkles, Crown, Sword, BookMarked, GraduationCap, Landmark, ChevronDown } from 'lucide-react';
 
 export default function IslamicHistoryBlog() {
   const [selectedSection, setSelectedSection] = useState(null);
@@ -36,23 +36,36 @@ export default function IslamicHistoryBlog() {
   const sections = [
     {
       id: 1,
-      title: "Awal Mula Islam di Jazirah Arab",
-      icon: <Star className="w-6 h-6" />,
-      color: "from-emerald-500 via-teal-500 to-cyan-600",
-      gradient: "bg-gradient-to-br from-emerald-500/20 to-cyan-500/20",
+      title: "Awal Mula Islam",
+      subtitle: "Di Jazirah Arab",
+      icon: <Star className="w-7 h-7" />,
+      color: "from-teal-600 via-emerald-600 to-green-700",
+      accentColor: "teal",
+      period: "570 - 632 M",
       illustration: (
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <defs>
             <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#10b981', stopOpacity: 1}} />
-              <stop offset="100%" style={{stopColor: '#06b6d4', stopOpacity: 1}} />
+              <stop offset="0%" style={{stopColor: '#0d9488', stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: '#059669', stopOpacity: 1}} />
             </linearGradient>
+            <filter id="glow1">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
-          <circle cx="100" cy="60" r="35" fill="url(#grad1)" opacity="0.3"/>
-          <path d="M100 30 L110 50 L130 55 L115 70 L120 90 L100 80 L80 90 L85 70 L70 55 L90 50 Z" fill="url(#grad1)"/>
-          <rect x="85" y="100" width="30" height="60" rx="5" fill="url(#grad1)" opacity="0.8"/>
-          <path d="M70 160 L130 160 L100 120 Z" fill="url(#grad1)" opacity="0.6"/>
-          <circle cx="100" cy="140" r="8" fill="#fbbf24"/>
+          {/* Kaaba representation */}
+          <rect x="75" y="110" width="50" height="60" rx="3" fill="url(#grad1)" opacity="0.9"/>
+          <rect x="70" y="105" width="60" height="5" fill="url(#grad1)" opacity="0.7"/>
+          {/* Star above */}
+          <path d="M100 40 L108 62 L130 65 L113 82 L118 105 L100 93 L82 105 L87 82 L70 65 L92 62 Z" fill="#d4af37" filter="url(#glow1)"/>
+          {/* Decorative circles */}
+          <circle cx="50" cy="80" r="8" fill="#d4af37" opacity="0.4"/>
+          <circle cx="150" cy="80" r="8" fill="#d4af37" opacity="0.4"/>
+          <circle cx="100" cy="50" r="5" fill="#d4af37" opacity="0.3"/>
         </svg>
       ),
       content: {
@@ -78,26 +91,40 @@ export default function IslamicHistoryBlog() {
     },
     {
       id: 2,
-      title: "Masa Khulafaur Rasyidin",
-      icon: <Crown className="w-6 h-6" />,
-      color: "from-blue-500 via-indigo-500 to-purple-600",
-      gradient: "bg-gradient-to-br from-blue-500/20 to-purple-500/20",
-      period: "632–661 M",
+      title: "Khulafaur Rasyidin",
+      subtitle: "Empat Khalifah Yang Bijaksana",
+      icon: <Crown className="w-7 h-7" />,
+      color: "from-amber-600 via-yellow-600 to-orange-700",
+      accentColor: "amber",
+      period: "632 - 661 M",
       illustration: (
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <defs>
             <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#3b82f6', stopOpacity: 1}} />
-              <stop offset="100%" style={{stopColor: '#8b5cf6', stopOpacity: 1}} />
+              <stop offset="0%" style={{stopColor: '#d97706', stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: '#ca8a04', stopOpacity: 1}} />
             </linearGradient>
           </defs>
-          <circle cx="50" cy="60" r="25" fill="url(#grad2)" opacity="0.7"/>
-          <circle cx="150" cy="60" r="25" fill="url(#grad2)" opacity="0.7"/>
-          <circle cx="50" cy="140" r="25" fill="url(#grad2)" opacity="0.7"/>
-          <circle cx="150" cy="140" r="25" fill="url(#grad2)" opacity="0.7"/>
-          <path d="M100 30 L110 50 L130 50 L115 65 L120 85 L100 75 L80 85 L85 65 L70 50 L90 50 Z" fill="#fbbf24"/>
-          <circle cx="100" cy="100" r="35" fill="url(#grad2)"/>
-          <path d="M85 95 L95 105 L115 85" stroke="white" strokeWidth="4" fill="none"/>
+          {/* Four crowns representing four caliphs */}
+          <g transform="translate(50, 60)">
+            <path d="M0 20 L5 0 L10 20 L15 5 L20 20 L10 15 L0 20" fill="url(#grad2)" opacity="0.8"/>
+            <circle cx="10" cy="25" r="3" fill="#d4af37"/>
+          </g>
+          <g transform="translate(130, 60)">
+            <path d="M0 20 L5 0 L10 20 L15 5 L20 20 L10 15 L0 20" fill="url(#grad2)" opacity="0.8"/>
+            <circle cx="10" cy="25" r="3" fill="#d4af37"/>
+          </g>
+          <g transform="translate(50, 130)">
+            <path d="M0 20 L5 0 L10 20 L15 5 L20 20 L10 15 L0 20" fill="url(#grad2)" opacity="0.8"/>
+            <circle cx="10" cy="25" r="3" fill="#d4af37"/>
+          </g>
+          <g transform="translate(130, 130)">
+            <path d="M0 20 L5 0 L10 20 L15 5 L20 20 L10 15 L0 20" fill="url(#grad2)" opacity="0.8"/>
+            <circle cx="10" cy="25" r="3" fill="#d4af37"/>
+          </g>
+          {/* Central symbol */}
+          <circle cx="100" cy="100" r="20" fill="url(#grad2)"/>
+          <path d="M100 85 L105 95 L115 95 L107 102 L110 112 L100 106 L90 112 L93 102 L85 95 L95 95 Z" fill="#d4af37"/>
         </svg>
       ),
       content: {
@@ -133,25 +160,29 @@ export default function IslamicHistoryBlog() {
     {
       id: 3,
       title: "Dinasti Umayyah",
-      icon: <Building className="w-6 h-6" />,
-      color: "from-amber-500 via-orange-500 to-red-600",
-      gradient: "bg-gradient-to-br from-amber-500/20 to-red-500/20",
-      period: "661–750 M",
+      subtitle: "Kejayaan di Damaskus",
+      icon: <Building className="w-7 h-7" />,
+      color: "from-indigo-600 via-blue-700 to-cyan-800",
+      accentColor: "indigo",
+      period: "661 - 750 M",
       illustration: (
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <defs>
             <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#f59e0b', stopOpacity: 1}} />
-              <stop offset="100%" style={{stopColor: '#dc2626', stopOpacity: 1}} />
+              <stop offset="0%" style={{stopColor: '#4f46e5', stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: '#0891b2', stopOpacity: 1}} />
             </linearGradient>
           </defs>
-          <rect x="60" y="80" width="80" height="90" rx="5" fill="url(#grad3)" opacity="0.8"/>
-          <rect x="70" y="90" width="60" height="70" fill="url(#grad3)" opacity="0.6"/>
-          <circle cx="100" cy="120" r="15" fill="#fbbf24"/>
-          <path d="M80 50 L120 50 L100 80 Z" fill="url(#grad3)"/>
-          <rect x="95" y="40" width="10" height="15" fill="url(#grad3)"/>
-          <circle cx="100" cy="35" r="8" fill="#fbbf24"/>
-          <rect x="50" y="160" width="100" height="10" fill="url(#grad3)" opacity="0.9"/>
+          {/* Mosque structure */}
+          <rect x="60" y="90" width="80" height="80" rx="5" fill="url(#grad3)" opacity="0.9"/>
+          <rect x="70" y="100" width="60" height="60" fill="url(#grad3)" opacity="0.6"/>
+          {/* Dome */}
+          <ellipse cx="100" cy="90" rx="40" ry="25" fill="url(#grad3)"/>
+          <ellipse cx="100" cy="85" rx="35" ry="20" fill="#d4af37" opacity="0.5"/>
+          {/* Minaret */}
+          <rect x="140" y="60" width="15" height="70" rx="2" fill="url(#grad3)"/>
+          <circle cx="147.5" cy="55" r="8" fill="#d4af37"/>
+          <path d="M140 55 L155 55 L147.5 45 Z" fill="url(#grad3)"/>
         </svg>
       ),
       content: {
@@ -166,28 +197,30 @@ export default function IslamicHistoryBlog() {
     },
     {
       id: 4,
-      title: "Dinasti Abbasiyah - Zaman Keemasan",
-      icon: <GraduationCap className="w-6 h-6" />,
-      color: "from-purple-500 via-pink-500 to-rose-600",
-      gradient: "bg-gradient-to-br from-purple-500/20 to-rose-500/20",
-      period: "750–1258 M",
+      title: "Dinasti Abbasiyah",
+      subtitle: "Zaman Keemasan Islam",
+      icon: <GraduationCap className="w-7 h-7" />,
+      color: "from-purple-600 via-violet-700 to-fuchsia-800",
+      accentColor: "purple",
+      period: "750 - 1258 M",
       illustration: (
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <defs>
             <linearGradient id="grad4" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#a855f7', stopOpacity: 1}} />
-              <stop offset="100%" style={{stopColor: '#f43f5e', stopOpacity: 1}} />
+              <stop offset="0%" style={{stopColor: '#9333ea', stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: '#c026d3', stopOpacity: 1}} />
             </linearGradient>
           </defs>
-          <circle cx="100" cy="100" r="60" fill="url(#grad4)" opacity="0.2"/>
-          <rect x="70" y="70" width="60" height="80" rx="5" fill="url(#grad4)" opacity="0.8"/>
-          <rect x="75" y="80" width="50" height="5" fill="white" opacity="0.8"/>
-          <rect x="75" y="95" width="50" height="5" fill="white" opacity="0.8"/>
-          <rect x="75" y="110" width="50" height="5" fill="white" opacity="0.8"/>
-          <rect x="75" y="125" width="50" height="5" fill="white" opacity="0.8"/>
-          <path d="M100 40 L110 50 L125 48 L115 60 L120 75 L100 68 L80 75 L85 60 L75 48 L90 50 Z" fill="#fbbf24"/>
-          <circle cx="50" cy="120" r="12" fill="url(#grad4)" opacity="0.6"/>
-          <circle cx="150" cy="120" r="12" fill="url(#grad4)" opacity="0.6"/>
+          {/* Book/Knowledge symbol */}
+          <rect x="60" y="70" width="80" height="90" rx="8" fill="url(#grad4)" opacity="0.9"/>
+          <rect x="65" y="80" width="70" height="4" fill="#d4af37" opacity="0.8"/>
+          <rect x="65" y="95" width="70" height="4" fill="#d4af37" opacity="0.6"/>
+          <rect x="65" y="110" width="70" height="4" fill="#d4af37" opacity="0.6"/>
+          <rect x="65" y="125" width="50" height="4" fill="#d4af37" opacity="0.6"/>
+          {/* Stars representing knowledge */}
+          <path d="M40 60 L43 68 L51 69 L45 75 L47 83 L40 79 L33 83 L35 75 L29 69 L37 68 Z" fill="#d4af37" opacity="0.7"/>
+          <path d="M160 60 L163 68 L171 69 L165 75 L167 83 L160 79 L153 83 L155 75 L149 69 L157 68 Z" fill="#d4af37" opacity="0.7"/>
+          <circle cx="100" cy="50" r="12" fill="#d4af37" opacity="0.5"/>
         </svg>
       ),
       content: {
@@ -203,23 +236,30 @@ export default function IslamicHistoryBlog() {
     },
     {
       id: 5,
-      title: "Dinasti-Dinasti Regional",
-      icon: <MapPin className="w-6 h-6" />,
-      color: "from-red-500 via-rose-500 to-pink-600",
-      gradient: "bg-gradient-to-br from-red-500/20 to-pink-500/20",
+      title: "Dinasti Regional",
+      subtitle: "Buyid, Seljuk & Mongol",
+      icon: <MapPin className="w-7 h-7" />,
+      color: "from-rose-600 via-red-700 to-pink-800",
+      accentColor: "rose",
+      period: "945 - 1258 M",
       illustration: (
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <defs>
             <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#ef4444', stopOpacity: 1}} />
-              <stop offset="100%" style={{stopColor: '#ec4899', stopOpacity: 1}} />
+              <stop offset="0%" style={{stopColor: '#e11d48', stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: '#db2777', stopOpacity: 1}} />
             </linearGradient>
           </defs>
-          <circle cx="60" cy="70" r="30" fill="url(#grad5)" opacity="0.6"/>
-          <circle cx="140" cy="70" r="30" fill="url(#grad5)" opacity="0.6"/>
-          <circle cx="100" cy="130" r="35" fill="url(#grad5)" opacity="0.8"/>
-          <path d="M80 60 L90 70 L120 60 L110 50" stroke="#fbbf24" strokeWidth="3" fill="none"/>
-          <path d="M120 120 L130 130 L150 115" stroke="#fbbf24" strokeWidth="3" fill="none"/>
+          {/* Three regions */}
+          <circle cx="70" cy="80" r="30" fill="url(#grad5)" opacity="0.7"/>
+          <text x="70" y="85" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">1</text>
+          <circle cx="130" cy="80" r="30" fill="url(#grad5)" opacity="0.7"/>
+          <text x="130" y="85" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">2</text>
+          <circle cx="100" cy="135" r="30" fill="url(#grad5)" opacity="0.9"/>
+          <text x="100" y="140" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold">3</text>
+          {/* Connection lines */}
+          <line x1="85" y1="95" x2="115" y2="120" stroke="#d4af37" strokeWidth="2" opacity="0.5"/>
+          <line x1="115" y1="95" x2="115" y2="120" stroke="#d4af37" strokeWidth="2" opacity="0.5"/>
         </svg>
       ),
       content: {
@@ -245,21 +285,28 @@ export default function IslamicHistoryBlog() {
     },
     {
       id: 6,
-      title: "Kebangkitan Kekuasaan Islam Baru",
-      icon: <Sparkles className="w-6 h-6" />,
-      color: "from-cyan-500 via-blue-500 to-indigo-600",
-      gradient: "bg-gradient-to-br from-cyan-500/20 to-indigo-500/20",
+      title: "Kebangkitan Baru",
+      subtitle: "Mamluk & Turki Usmani",
+      icon: <Sparkles className="w-7 h-7" />,
+      color: "from-emerald-600 via-teal-700 to-cyan-800",
+      accentColor: "emerald",
+      period: "1250 - 1924 M",
       illustration: (
         <svg viewBox="0 0 200 200" className="w-full h-full">
           <defs>
             <linearGradient id="grad6" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style={{stopColor: '#06b6d4', stopOpacity: 1}} />
-              <stop offset="100%" style={{stopColor: '#4f46e5', stopOpacity: 1}} />
+              <stop offset="0%" style={{stopColor: '#059669', stopOpacity: 1}} />
+              <stop offset="100%" style={{stopColor: '#0891b2', stopOpacity: 1}} />
             </linearGradient>
           </defs>
-          <path d="M100 50 L120 90 L160 95 L130 120 L140 160 L100 140 L60 160 L70 120 L40 95 L80 90 Z" fill="url(#grad6)" opacity="0.8"/>
-          <circle cx="100" cy="100" r="25" fill="#fbbf24"/>
-          <path d="M100 80 L105 95 L120 95 L108 105 L113 120 L100 112 L87 120 L92 105 L80 95 L95 95 Z" fill="white"/>
+          {/* Rising sun/phoenix symbol */}
+          <circle cx="100" cy="120" r="40" fill="url(#grad6)" opacity="0.3"/>
+          <path d="M100 60 L110 85 L135 90 L115 108 L120 133 L100 120 L80 133 L85 108 L65 90 L90 85 Z" fill="url(#grad6)" opacity="0.9"/>
+          <circle cx="100" cy="100" r="20" fill="#d4af37"/>
+          {/* Rays */}
+          <line x1="100" y1="50" x2="100" y2="70" stroke="#d4af37" strokeWidth="3" opacity="0.7"/>
+          <line x1="130" y1="70" x2="120" y2="85" stroke="#d4af37" strokeWidth="3" opacity="0.7"/>
+          <line x1="145" y1="100" x2="125" y2="100" stroke="#d4af37" strokeWidth="3" opacity="0.7"/>
         </svg>
       ),
       content: {
@@ -285,63 +332,48 @@ export default function IslamicHistoryBlog() {
       title: "Ilmu Pengetahuan",
       description: "Astronomi, kedokteran, matematika, dan filsafat berkembang pesat di pusat-pusat seperti Baghdad, Isfahan, dan Damaskus.",
       icon: "📚",
-      color: "from-blue-500 to-cyan-500"
+      color: "from-indigo-600 to-blue-600"
     },
     {
       title: "Arsitektur",
       description: "Masjid-masjid megah dibangun, seperti Masjid Umayyah di Damaskus dan Masjid Sultan Ahmed (Blue Mosque) di Istanbul.",
       icon: "🕌",
-      color: "from-purple-500 to-pink-500"
+      color: "from-purple-600 to-fuchsia-600"
     },
     {
       title: "Sastra dan Seni",
       description: "Karya sastra seperti Alf Laila wa Laila (1001 Malam) mencerminkan kemakmuran budaya Islam.",
       icon: "📖",
-      color: "from-amber-500 to-orange-500"
+      color: "from-amber-600 to-orange-600"
     },
     {
       title: "Toleransi dan Perdagangan",
       description: "Islam menjadi perekat antarbangsa dan mendorong pertukaran ilmu serta barang antara Timur dan Barat.",
       icon: "🌍",
-      color: "from-emerald-500 to-teal-500"
+      color: "from-emerald-600 to-teal-600"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
-      {/* Animated Background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 -left-4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-stone-50 to-amber-50">
+      {/* Decorative Islamic Pattern Background */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30 30 0zm0 10L10 30l20 20 20-20L30 10z' fill='%23000000' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+        backgroundSize: '40px 40px'
+      }}></div>
 
       <style jsx>{`
-        @keyframes blob {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-        .animate-blob {
-          animation: blob 7s infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
+          50% { transform: translateY(-15px); }
         }
         .animate-float {
-          animation: float 6s ease-in-out infinite;
+          animation: float 4s ease-in-out infinite;
         }
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
           }
           to {
             opacity: 1;
@@ -349,40 +381,38 @@ export default function IslamicHistoryBlog() {
           }
         }
         .animate-fadeInUp {
-          animation: fadeInUp 0.6s ease-out forwards;
+          animation: fadeInUp 0.8s ease-out forwards;
         }
-        @keyframes shimmer {
-          0% { background-position: -1000px 0; }
-          100% { background-position: 1000px 0; }
+        @keyframes pulse-subtle {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.8; }
         }
-        .animate-shimmer {
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-          background-size: 1000px 100%;
-          animation: shimmer 2s infinite;
+        .animate-pulse-subtle {
+          animation: pulse-subtle 3s ease-in-out infinite;
         }
       `}</style>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-slate-900/80 border-b border-slate-700/50 shadow-2xl">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b-2 border-amber-200 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-4 group">
+            <div className="flex items-center space-x-4">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-                <div className="relative bg-gradient-to-br from-emerald-500 to-cyan-500 p-3 rounded-2xl transform group-hover:scale-110 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-emerald-600 rounded-xl blur-sm opacity-50"></div>
+                <div className="relative bg-gradient-to-br from-teal-600 to-emerald-600 p-3 rounded-xl shadow-xl">
                   <BookOpen className="w-7 h-7 text-white" />
                 </div>
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
                   Sejarah Islam
                 </h1>
-                <p className="text-sm text-slate-400 font-medium">Perkembangan di Asia Barat</p>
+                <p className="text-sm text-slate-600 font-medium">Perkembangan di Asia Barat</p>
               </div>
             </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-white hover:bg-slate-800 p-2 rounded-xl transition-all duration-300"
+              className="lg:hidden text-slate-700 hover:bg-slate-100 p-2 rounded-lg transition-all"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -391,63 +421,68 @@ export default function IslamicHistoryBlog() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-blue-500/10"></div>
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/20 rounded-full filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-cyan-500/20 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
-        </div>
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-teal-200 rounded-full opacity-20 blur-3xl animate-pulse-subtle"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-amber-200 rounded-full opacity-20 blur-3xl animate-pulse-subtle" style={{animationDelay: '1.5s'}}></div>
         
-        <div className="max-w-5xl mx-auto text-center relative z-10">
-          <div className="inline-block mb-6 animate-float">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full blur-2xl opacity-30"></div>
-              <svg viewBox="0 0 100 100" className="w-24 h-24 relative">
-                <defs>
-                  <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{stopColor: '#10b981'}} />
-                    <stop offset="100%" style={{stopColor: '#06b6d4'}} />
-                  </linearGradient>
-                </defs>
-                <path d="M50 10 L60 30 L80 35 L65 50 L70 70 L50 60 L30 70 L35 50 L20 35 L40 30 Z" fill="url(#heroGrad)"/>
-                <circle cx="50" cy="50" r="12" fill="#fbbf24"/>
-              </svg>
-            </div>
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <div className="inline-block mb-8 animate-float">
+            <svg viewBox="0 0 120 120" className="w-28 h-28">
+              <defs>
+                <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor: '#0d9488'}} />
+                  <stop offset="100%" style={{stopColor: '#059669'}} />
+                </linearGradient>
+              </defs>
+              <circle cx="60" cy="60" r="50" fill="url(#heroGrad)" opacity="0.15"/>
+              <path d="M60 20 L70 45 L95 50 L75 70 L80 95 L60 82 L40 95 L45 70 L25 50 L50 45 Z" fill="url(#heroGrad)"/>
+              <circle cx="60" cy="60" r="15" fill="#d4af37"/>
+            </svg>
           </div>
           
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-8 animate-fadeInUp">
-            <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Perkembangan Islam
-            </span>
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
+            Perkembangan Islam
             <br />
-            <span className="text-white">di Asia Barat</span>
+            <span className="bg-gradient-to-r from-teal-600 via-emerald-600 to-green-700 bg-clip-text text-transparent">
+              di Asia Barat
+            </span>
           </h2>
           
-          <p className="text-xl sm:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto animate-fadeInUp" style={{animationDelay: '0.2s'}}>
+          <p className="text-xl sm:text-2xl text-slate-700 leading-relaxed max-w-4xl mx-auto mb-10" style={{fontFamily: 'Georgia, serif'}}>
             Asia Barat merupakan wilayah penting dalam sejarah Islam karena dari sini agama Islam lahir dan menyebar ke seluruh dunia.
           </p>
           
-          <div className="mt-12 flex flex-wrap justify-center gap-4 animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-            <div className="px-6 py-3 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 backdrop-blur-sm rounded-full border border-emerald-500/30">
-              <span className="text-emerald-400 font-semibold">📍 Jazirah Arab</span>
+          <div className="flex flex-wrap justify-center gap-4">
+            <div className="px-6 py-3 bg-white rounded-full shadow-md border-2 border-teal-200">
+              <span className="text-teal-700 font-semibold">📍 Jazirah Arab</span>
             </div>
-            <div className="px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-full border border-blue-500/30">
-              <span className="text-blue-400 font-semibold">🏛️ Irak & Suriah</span>
+            <div className="px-6 py-3 bg-white rounded-full shadow-md border-2 border-amber-200">
+              <span className="text-amber-700 font-semibold">🏛️ Irak & Suriah</span>
             </div>
-            <div className="px-6 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30">
-              <span className="text-purple-400 font-semibold">🌍 Iran & Turki</span>
+            <div className="px-6 py-3 bg-white rounded-full shadow-md border-2 border-purple-200">
+              <span className="text-purple-700 font-semibold">🌍 Iran & Turki</span>
             </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="mt-16 animate-bounce">
+            <ChevronDown className="w-8 h-8 text-slate-400 mx-auto" />
           </div>
         </div>
       </section>
 
-      {/* Timeline Sections */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+      {/* Timeline Introduction */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="text-center mb-16">
-          <h3 className="text-4xl font-bold text-white mb-4">Perjalanan Sejarah</h3>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto rounded-full"></div>
+          <h3 className="text-4xl font-bold text-slate-800 mb-4" style={{fontFamily: 'Georgia, serif'}}>
+            Perjalanan Sejarah
+          </h3>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-teal-600 to-emerald-600 mx-auto rounded-full"></div>
+          <p className="text-slate-600 mt-4 text-lg">Dari kelahiran hingga kejayaan peradaban Islam</p>
         </div>
 
+        {/* Timeline Cards Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {sections.map((section, idx) => (
             <div
@@ -455,60 +490,45 @@ export default function IslamicHistoryBlog() {
               id={`section-${section.id}`}
               data-animate
               onClick={() => setSelectedSection(section.id)}
-              className={`group cursor-pointer relative overflow-hidden rounded-3xl transition-all duration-500 hover:scale-105 ${
+              className={`group cursor-pointer relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 border-${section.accentColor}-100 ${
                 isVisible[`section-${section.id}`] ? 'animate-fadeInUp' : 'opacity-0'
               }`}
-              style={{animationDelay: `${idx * 0.1}s`}}
+              style={{animationDelay: `${idx * 0.15}s`}}
             >
-              {/* Card Background with Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}></div>
-              <div className="absolute inset-0 bg-slate-800/50 backdrop-blur-sm"></div>
-              
-              {/* Shimmer Effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 animate-shimmer"></div>
-              </div>
-
-              {/* Border Gradient */}
-              <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${section.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} style={{padding: '2px'}}>
-                <div className="w-full h-full bg-slate-800 rounded-3xl"></div>
-              </div>
-
-              {/* Content */}
-              <div className="relative p-8 z-10">
-                {/* Illustration */}
-                <div className="mb-6 w-32 h-32 mx-auto transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                  {section.illustration}
-                </div>
-
-                {/* Icon Badge */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${section.color} flex items-center justify-center mb-6 mx-auto transform group-hover:rotate-12 transition-all duration-500 shadow-2xl`}>
-                  <div className="text-white transform group-hover:scale-110 transition-transform duration-300">
+              {/* Header with gradient */}
+              <div className={`bg-gradient-to-br ${section.color} p-6 relative overflow-hidden`}>
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full opacity-10 -mr-16 -mt-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full opacity-10 -ml-12 -mb-12"></div>
+                
+                <div className="relative flex items-center justify-between mb-3">
+                  <div className={`w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white shadow-lg`}>
                     {section.icon}
                   </div>
+                  <span className="text-xs font-bold text-white/90 bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                    {section.period}
+                  </span>
                 </div>
-
-                <h3 className="text-2xl font-bold text-white mb-3 text-center group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-emerald-400 group-hover:to-cyan-400 transition-all duration-300">
+                
+                <h3 className="text-2xl font-bold text-white mb-1" style={{fontFamily: 'Georgia, serif'}}>
                   {section.title}
                 </h3>
-                
-                {section.period && (
-                  <div className="mb-4 text-center">
-                    <span className={`inline-block px-4 py-2 rounded-full text-sm font-semibold bg-gradient-to-r ${section.color} text-white shadow-lg`}>
-                      {section.period}
-                    </span>
-                  </div>
-                )}
+                <p className="text-white/90 text-sm font-medium">{section.subtitle}</p>
+              </div>
 
-                <div className="flex items-center justify-center text-slate-400 text-sm group-hover:text-emerald-400 transition-colors duration-300">
-                  <span className="font-medium">Baca selengkapnya</span>
-                  <ChevronRight className="w-5 h-5 ml-1 transform group-hover:translate-x-2 transition-transform duration-300" />
+              {/* Illustration */}
+              <div className="p-8 bg-gradient-to-b from-slate-50 to-white">
+                <div className="w-full h-48 transform group-hover:scale-105 transition-transform duration-500">
+                  {section.illustration}
                 </div>
               </div>
 
-              {/* Floating particles effect */}
-              <div className="absolute top-4 right-4 w-2 h-2 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-              <div className="absolute bottom-4 left-4 w-2 h-2 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping" style={{animationDelay: '0.3s'}}></div>
+              {/* Footer */}
+              <div className="px-6 pb-6">
+                <div className="flex items-center justify-center text-slate-600 group-hover:text-teal-600 transition-colors">
+                  <span className="font-semibold text-sm">Baca selengkapnya</span>
+                  <ChevronRight className="w-5 h-5 ml-1 transform group-hover:translate-x-2 transition-transform" />
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -517,49 +537,50 @@ export default function IslamicHistoryBlog() {
       {/* Detail Modal */}
       {selectedSection && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl animate-fadeInUp" 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" 
           onClick={() => setSelectedSection(null)}
         >
           <div 
-            className="bg-slate-900 rounded-3xl max-w-5xl w-full max-h-[85vh] overflow-hidden border border-slate-700 shadow-2xl transform scale-100 animate-fadeInUp" 
+            className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-hidden shadow-2xl transform animate-fadeInUp" 
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className={`bg-gradient-to-r ${sections.find(s => s.id === selectedSection).color} p-8 relative overflow-hidden`}>
-              <div className="absolute inset-0 opacity-20">
+            <div className={`bg-gradient-to-br ${sections.find(s => s.id === selectedSection).color} p-8 relative overflow-hidden`}>
+              <div className="absolute inset-0 opacity-10">
                 <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full filter blur-3xl"></div>
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-white rounded-full filter blur-3xl"></div>
               </div>
               
-              <div className="relative flex items-center justify-between">
-                <div className="flex items-center space-x-6">
-                  <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center transform hover:rotate-12 transition-transform duration-300">
+              <div className="relative flex items-start justify-between">
+                <div className="flex items-center space-x-5 flex-1">
+                  <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shadow-lg">
                     <div className="text-white">
                       {sections.find(s => s.id === selectedSection).icon}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-3xl font-bold text-white mb-2">
+                    <h3 className="text-3xl font-bold text-white mb-1" style={{fontFamily: 'Georgia, serif'}}>
                       {sections.find(s => s.id === selectedSection).title}
                     </h3>
-                    {sections.find(s => s.id === selectedSection).period && (
-                      <p className="text-white/90 text-lg font-semibold">
-                        {sections.find(s => s.id === selectedSection).period}
-                      </p>
-                    )}
+                    <p className="text-white/90 text-lg font-medium mb-2">
+                      {sections.find(s => s.id === selectedSection).subtitle}
+                    </p>
+                    <span className="inline-block text-sm font-bold text-white/90 bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">
+                      {sections.find(s => s.id === selectedSection).period}
+                    </span>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedSection(null)}
-                  className="text-white hover:bg-white/20 p-3 rounded-2xl transition-all duration-300 transform hover:rotate-90"
+                  className="text-white hover:bg-white/20 p-2 rounded-xl transition-all"
                 >
-                  <X className="w-7 h-7" />
+                  <X className="w-6 h-6" />
                 </button>
               </div>
             </div>
             
             {/* Modal Content */}
-            <div className="p-8 space-y-8 overflow-y-auto max-h-[calc(85vh-200px)] custom-scrollbar">
+            <div className="p-8 space-y-6 overflow-y-auto max-h-[calc(90vh-180px)] custom-scrollbar bg-gradient-to-b from-slate-50 to-white">
               {(() => {
                 const section = sections.find(s => s.id === selectedSection);
                 const content = section.content;
@@ -567,14 +588,16 @@ export default function IslamicHistoryBlog() {
                 return (
                   <>
                     {/* Illustration in Modal */}
-                    <div className="flex justify-center mb-8">
-                      <div className="w-48 h-48 transform hover:scale-110 transition-transform duration-500">
+                    <div className="flex justify-center mb-6 bg-white rounded-xl p-6 shadow-inner">
+                      <div className="w-56 h-56">
                         {section.illustration}
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-br from-slate-800/50 to-slate-900/50 rounded-2xl p-6 border border-slate-700/50 backdrop-blur-sm">
-                      <p className="text-slate-300 leading-relaxed text-lg">{content.intro}</p>
+                    <div className="bg-white rounded-xl p-6 border-l-4 border-teal-500 shadow-md">
+                      <p className="text-slate-700 leading-relaxed text-lg" style={{fontFamily: 'Georgia, serif'}}>
+                        {content.intro}
+                      </p>
                     </div>
                     
                     {content.subsections && (
@@ -582,17 +605,17 @@ export default function IslamicHistoryBlog() {
                         {content.subsections.map((sub, idx) => (
                           <div 
                             key={idx} 
-                            className="group bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-2xl p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 transform hover:scale-102 hover:shadow-2xl hover:shadow-emerald-500/10"
+                            className="bg-white rounded-xl p-6 border border-slate-200 hover:border-teal-300 hover:shadow-lg transition-all"
                           >
                             <div className="flex items-start space-x-4">
-                              <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${section.color} flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform duration-300`}>
+                              <div className={`flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br ${section.color} flex items-center justify-center text-white shadow-md`}>
                                 {sub.icon}
                               </div>
                               <div className="flex-1">
-                                <h4 className="text-xl font-semibold text-emerald-400 mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+                                <h4 className="text-xl font-bold text-slate-800 mb-2" style={{fontFamily: 'Georgia, serif'}}>
                                   {sub.title}
                                 </h4>
-                                <p className="text-slate-300 leading-relaxed">{sub.text}</p>
+                                <p className="text-slate-600 leading-relaxed">{sub.text}</p>
                               </div>
                             </div>
                           </div>
@@ -602,55 +625,57 @@ export default function IslamicHistoryBlog() {
                     
                     {content.khalifah && (
                       <div className="space-y-4">
-                        <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
-                          <Crown className="w-6 h-6 mr-2 text-amber-400" />
+                        <h4 className="text-2xl font-bold text-slate-800 mb-4 flex items-center" style={{fontFamily: 'Georgia, serif'}}>
+                          <Crown className="w-6 h-6 mr-2 text-amber-600" />
                           Empat Khalifah Rasyidin
                         </h4>
                         {content.khalifah.map((k, idx) => (
                           <div 
                             key={idx} 
-                            className={`group bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-2xl p-6 border-l-4 border-blue-500 hover:border-cyan-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/10 transform hover:-translate-y-1`}
+                            className="bg-white rounded-xl p-6 border-l-4 border-amber-500 shadow-md hover:shadow-lg transition-all"
                           >
-                            <div className="flex items-start justify-between mb-4">
+                            <div className="flex items-start justify-between mb-3 flex-wrap gap-3">
                               <div className="flex items-center space-x-3">
-                                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${section.color} flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform duration-300`}>
+                                <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${section.color} flex items-center justify-center text-white shadow-md`}>
                                   {k.icon}
                                 </div>
-                                <h4 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                                <h4 className="text-xl font-bold text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
                                   {k.name}
                                 </h4>
                               </div>
-                              <span className="text-sm px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full font-semibold border border-blue-500/30">
+                              <span className="text-sm px-4 py-1.5 bg-amber-100 text-amber-800 rounded-full font-bold border border-amber-200">
                                 {k.period}
                               </span>
                             </div>
-                            <p className="text-slate-300 leading-relaxed">{k.achievement}</p>
+                            <p className="text-slate-600 leading-relaxed">{k.achievement}</p>
                           </div>
                         ))}
                       </div>
                     )}
                     
                     {content.achievements && (
-                      <div className="bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-2xl p-6 border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300">
-                        <h4 className="text-2xl font-semibold text-transparent bg-gradient-to-r bg-clip-text from-purple-400 to-pink-400 mb-4 flex items-center">
-                          <Sparkles className="w-6 h-6 mr-2 text-purple-400" />
+                      <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200 shadow-md">
+                        <h4 className="text-2xl font-bold text-purple-800 mb-4 flex items-center" style={{fontFamily: 'Georgia, serif'}}>
+                          <Sparkles className="w-6 h-6 mr-2" />
                           Pencapaian Utama
                         </h4>
                         <ul className="space-y-3">
                           {content.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start space-x-3 group">
-                              <span className={`flex-shrink-0 w-2 h-2 mt-2 rounded-full bg-gradient-to-r ${section.color} group-hover:scale-150 transition-transform duration-300`}></span>
-                              <span className="text-slate-300 leading-relaxed group-hover:text-white transition-colors duration-300">
+                            <li key={idx} className="flex items-start space-x-3">
+                              <span className="flex-shrink-0 w-6 h-6 mt-0.5 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold shadow">
+                                {idx + 1}
+                              </span>
+                              <span className="text-slate-700 leading-relaxed flex-1">
                                 {achievement}
                               </span>
                             </li>
                           ))}
                         </ul>
                         {content.note && (
-                          <div className="mt-6 p-4 bg-amber-500/10 border border-amber-500/30 rounded-xl">
-                            <p className="text-amber-400 text-sm italic flex items-start">
-                              <span className="mr-2">💡</span>
-                              {content.note}
+                          <div className="mt-4 p-4 bg-amber-100 border-l-4 border-amber-500 rounded-lg">
+                            <p className="text-amber-900 text-sm flex items-start">
+                              <span className="mr-2 text-lg">💡</span>
+                              <span className="italic">{content.note}</span>
                             </p>
                           </div>
                         )}
@@ -662,17 +687,17 @@ export default function IslamicHistoryBlog() {
                         {content.dynasties.map((d, idx) => (
                           <div 
                             key={idx} 
-                            className={`group bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-2xl p-6 border-l-4 border-rose-500 hover:border-pink-400 transition-all duration-300 hover:shadow-2xl hover:shadow-rose-500/10 transform hover:-translate-y-1`}
+                            className="bg-white rounded-xl p-6 border-l-4 border-rose-500 shadow-md hover:shadow-lg transition-all"
                           >
-                            <div className="flex items-center justify-between mb-4">
-                              <h4 className="text-xl font-semibold text-white group-hover:text-rose-400 transition-colors duration-300">
+                            <div className="flex items-center justify-between mb-3 flex-wrap gap-3">
+                              <h4 className="text-xl font-bold text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
                                 {d.name}
                               </h4>
-                              <span className="text-sm px-4 py-2 bg-rose-500/20 text-rose-400 rounded-full font-semibold border border-rose-500/30">
+                              <span className="text-sm px-4 py-1.5 bg-rose-100 text-rose-800 rounded-full font-bold border border-rose-200">
                                 {d.period}
                               </span>
                             </div>
-                            <p className="text-slate-300 leading-relaxed">{d.info}</p>
+                            <p className="text-slate-600 leading-relaxed">{d.info}</p>
                           </div>
                         ))}
                       </div>
@@ -688,95 +713,90 @@ export default function IslamicHistoryBlog() {
       {/* Legacy Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 mb-4" style={{fontFamily: 'Georgia, serif'}}>
             Warisan Kebudayaan Islam
           </h2>
-          <p className="text-xl text-slate-400 mb-6">di Asia Barat</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-cyan-400 mx-auto rounded-full"></div>
+          <p className="text-xl text-slate-600 mb-4">di Asia Barat</p>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-teal-600 to-emerald-600 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {legacies.map((legacy, idx) => (
             <div 
               key={idx} 
-              className="group relative overflow-hidden bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700/50 hover:border-slate-600 transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 hover:shadow-2xl"
+              className="group relative overflow-hidden bg-white rounded-2xl p-8 border-2 border-slate-200 hover:border-teal-300 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl"
               data-animate
               id={`legacy-${idx}`}
             >
-              {/* Gradient background on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${legacy.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${legacy.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
               
-              {/* Icon with animation */}
-              <div className="relative text-6xl mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 inline-block">
+              <div className="relative text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500">
                 {legacy.icon}
               </div>
               
-              <h3 className="relative text-2xl font-bold text-white mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-emerald-400 group-hover:to-cyan-400 transition-all duration-300">
+              <h3 className="relative text-2xl font-bold text-slate-800 mb-4 group-hover:text-teal-700 transition-colors" style={{fontFamily: 'Georgia, serif'}}>
                 {legacy.title}
               </h3>
               
-              <p className="relative text-slate-300 leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+              <p className="relative text-slate-600 leading-relaxed">
                 {legacy.description}
               </p>
 
-              {/* Decorative corner */}
-              <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${legacy.color} opacity-20 rounded-bl-full transform scale-0 group-hover:scale-100 transition-transform duration-500`}></div>
+              <div className={`absolute bottom-0 right-0 w-20 h-20 bg-gradient-to-br ${legacy.color} opacity-10 rounded-tl-full transform scale-0 group-hover:scale-100 transition-transform duration-500`}></div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Political & Social Impact */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 mb-20 relative z-10">
-        <div className="relative overflow-hidden bg-gradient-to-br from-slate-800/70 via-slate-900/70 to-slate-800/70 rounded-3xl p-10 lg:p-16 border border-slate-700/50 shadow-2xl">
-          {/* Decorative elements */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full filter blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-cyan-500/10 to-transparent rounded-full filter blur-3xl"></div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 mb-20 relative z-10">
+        <div className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 rounded-2xl p-10 lg:p-16 border-2 border-purple-200 shadow-xl">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-200 rounded-full opacity-20 -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-200 rounded-full opacity-20 -ml-32 -mb-32"></div>
           
           <div className="relative">
             <div className="flex items-center justify-center mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center transform hover:rotate-12 transition-transform duration-300 shadow-xl">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-xl">
                 <Landmark className="w-8 h-8 text-white" />
               </div>
             </div>
 
-            <h2 className="text-4xl font-bold text-center mb-8">
-              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 bg-clip-text text-transparent">
-                Pengaruh Islam pada Politik dan Sosial
-              </span>
-              <br />
-              <span className="text-white text-2xl">Asia Barat</span>
+            <h2 className="text-4xl font-bold text-center mb-3 text-slate-800" style={{fontFamily: 'Georgia, serif'}}>
+              Pengaruh Islam pada Politik dan Sosial
             </h2>
+            <p className="text-center text-xl text-slate-600 mb-10" style={{fontFamily: 'Georgia, serif'}}>
+              Asia Barat
+            </p>
             
-            <div className="space-y-6 text-slate-300 leading-relaxed text-lg">
-              <div className="group p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-300 transform hover:scale-102">
+            <div className="space-y-6">
+              <div className="bg-white rounded-xl p-6 border-l-4 border-purple-500 shadow-md hover:shadow-lg transition-all">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-2xl shadow-md">
                     ⚖️
                   </div>
-                  <p>
+                  <p className="text-slate-700 leading-relaxed flex-1">
                     Sistem pemerintahan Islam memperkenalkan pemerintahan yang berlandaskan syariah sebagai hukum utama, dengan prinsip keadilan sosial dan penguasa bertanggung jawab tidak hanya pada rakyat tapi juga pada hukum Tuhan. Pemerintahan Islam mengedepankan musyawarah (syura) dalam pengambilan keputusan.
                   </p>
                 </div>
               </div>
 
-              <div className="group p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-102">
+              <div className="bg-white rounded-xl p-6 border-l-4 border-cyan-500 shadow-md hover:shadow-lg transition-all">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center text-2xl shadow-md">
                     👨‍🏫
                   </div>
-                  <p>
+                  <p className="text-slate-700 leading-relaxed flex-1">
                     Peran ulama sangat penting sebagai penasihat dan pengawas penguasa agar kebijakan sesuai dengan ajaran Islam. Ulama menjaga moral dan integritas syariah dalam pemerintahan serta menjadi penghubung aspirasi masyarakat.
                   </p>
                 </div>
               </div>
 
-              <div className="group p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-emerald-500/50 transition-all duration-300 transform hover:scale-102">
+              <div className="bg-white rounded-xl p-6 border-l-4 border-emerald-500 shadow-md hover:shadow-lg transition-all">
                 <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center text-2xl shadow-md">
                     🌐
                   </div>
-                  <p>
+                  <p className="text-slate-700 leading-relaxed flex-1">
                     Jaringan perdagangan dan jalur komunikasi yang luas terbentuk dan aman di bawah pemerintahan Islam, menghubungkan wilayah Asia Barat dengan wilayah lain seperti Afrika dan Eropa, yang memperkuat hubungan sosial dan ekonomi serta mempercepat penyebaran Islam dan budaya.
                   </p>
                 </div>
@@ -787,38 +807,38 @@ export default function IslamicHistoryBlog() {
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-slate-900/90 backdrop-blur-sm border-t border-slate-700/50 py-12">
+      <footer className="relative bg-gradient-to-br from-slate-800 to-slate-900 border-t-4 border-amber-500 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4">
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-cyan-500 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg">
                 <BookOpen className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-white" style={{fontFamily: 'Georgia, serif'}}>
                 Sejarah Islam
               </span>
             </div>
-            <p className="text-slate-400">Pendidikan dan Pembelajaran Sejarah</p>
-            <p className="text-slate-500 text-sm">© 2024 Blog Sejarah Islam. Dibuat dengan ❤️ untuk pendidikan.</p>
+            <p className="text-slate-300">Pendidikan dan Pembelajaran Sejarah</p>
+            <p className="text-slate-400 text-sm">© 2024 Blog Sejarah Islam. Dibuat dengan ❤️ untuk pendidikan.</p>
           </div>
         </div>
       </footer>
 
-      {/* Custom Scrollbar Styles */}
+      {/* Custom Scrollbar */}
       <style jsx>{`
         .custom-scrollbar::-webkit-scrollbar {
-          width: 8px;
+          width: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: rgba(15, 23, 42, 0.5);
+          background: #f1f5f9;
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: linear-gradient(to bottom, #10b981, #06b6d4);
+          background: linear-gradient(to bottom, #0d9488, #059669);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(to bottom, #059669, #0891b2);
+          background: linear-gradient(to bottom, #0f766e, #047857);
         }
       `}</style>
     </div>
